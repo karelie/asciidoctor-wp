@@ -7,7 +7,7 @@ This Plugin is Asciidoc markups plugin for wordpress.
 
 ## Installation
 
-1. Upload `asciidoc` to the `/wp-content/plugins/` directory
+1. Upload `asciidoctor-wp` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the ‘Plugins’ menu in WordPress
 
 ## Changelog
