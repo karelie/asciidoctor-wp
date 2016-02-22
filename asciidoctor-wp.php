@@ -205,7 +205,7 @@ add_filter('the_content','wpasciidoc_custom');
 function wpasciidoc_custom($contentData){
 
     $id = get_the_ID();
-    $custom = get_post_meta($id, "wpasciidoc_checkbox");
+    $custom = get_post_meta($id, "wpasciidoc_checkbox", true);
     if (is_array($custom)) {
     $custom = implode($custom);
     }
