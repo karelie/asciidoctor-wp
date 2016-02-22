@@ -12,7 +12,10 @@ This Plugin is Asciidoc markups plugin for wordpress.
 
 ## Changelog
 
-### 1.0
+### 1.0.2 (2016-02-22)
+Bug fix
+
+### 1.0 (2016-02-21)
 First release version.	
 
 
