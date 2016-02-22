@@ -21,6 +21,7 @@ First release version.
 #### About basic setting.
 
 This plugin have 2 mode.
+
 1. Individual posts (If you want to set in each posts and pages, Please check here.)
 2. All posts (If you want use with "Front end editor" or "wordpress.com", must be check here.)
 
