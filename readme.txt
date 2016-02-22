@@ -1,11 +1,11 @@
 === Plugin Name ===
 Contributors: SHUICHI MINAMIE
-Donate link: 
+Donate link: http://sminamie.github.io/asciidoctor-wp/
 Tags: asciidoc, markup
 Requires at least: 4.1
 Tested up to: 4.4.2
 Stable tag: 1.0
-License: MIT
+License: MIT License
 License URI:
 
 This Plugin is Asciidoc markups plugin for wordpress.
@@ -22,7 +22,7 @@ This Plugin is Asciidoc markups plugin for wordpress.
 == Changelog ==
 
 = 1.0 =
-First release version.	
+First release version.
 
 
 == Arbitrary section ==
