@@ -61,6 +61,8 @@ class Plugin_wpasciidoc
         update_option('wpasc_check_page', $wpasc_check_page);
         $wpasc_check_custum = isset($_POST['wpasc_check_custum']) ? 1 : 0;
         update_option('wpasc_check_custum', $wpasc_check_custum);
+        $wpasc_check_image = isset($_POST['wpasc_check_image']) ? 1 : 0;
+        update_option('wpasc_check_image', $wpasc_check_image);
         $wpasc_check_highlight = isset($_POST['wpasc_check_highlight']) ? 1 : 0;
         update_option('wpasc_check_highlight', $wpasc_check_highlight);
         $wpasc_check_jquery = isset($_POST['wpasc_check_jquery']) ? 1 : 0;
@@ -104,10 +106,19 @@ class Plugin_wpasciidoc
     // echo '> COSTUM POST TYPE</p>';
 
     echo '<p id="">Extra settings:</p>';
+
+    echo '<p><input type="checkbox" value="1" name="wpasc_check_image" ';
+    checked( 1, get_option('wpasc_check_image'));
+    echo '> Use Asciidoctor images format</p>';
+    echo '<p>If you want use Asciidoctor images format, please check here.</p>';
+
+    echo '<br />';
+
     echo '<p><input type="checkbox" value="1" name="wpasc_check_highlight" ';
     checked( 1, get_option('wpasc_check_highlight'));
     echo '> highlight.js</p>';
     echo '<p>If you want use highlight.js, please check here.</p>';
+
     echo '<br />';
 
     echo '<p><input type="checkbox" value="1" name="wpasc_check_jquery" ';
@@ -252,5 +263,31 @@ add_filter('tiny_mce_before_init', function($init) {
     return $init;
 });
 
+//add asciidoctor image format
+$wpasc_check_image = get_option('wpasc_check_image');
+if($wpasc_check_image == '1'){
+function wpasciidoc_image_wrap($html, $id, $caption, $title, $align, $url, $size, $alt){
+    list( $img_src, $width, $height ) = image_downsize($id, $size);
+
+    $media_array = array();
+    if ($width ==! ""){$width = 'width="'.$width.'"';$media_array[]=$width;}
+    if ($height ==! ""){$height = 'height="'.$height.'"';$media_array[]=$height;}
+    // if ($title ==! ""){$title = 'title="'.$esc_attr($title).'"';$media_array[]=$title;}
+    // if ($caption ==! ""){$caption = 'caption="'.$caption.'"';$media_array[]=$caption;}
+    if ($alt ==! ""){$alt = 'alt="'.esc_attr($alt).'"';$media_array[]=$alt;}
+    if ($url ==! ""){$url = 'link="'.$url.'"';$media_array[]=$url;}
+    if ($align ==! ""){$align = 'align="'.$align.'"';$media_array[]=$align;}
+    $comma_separated = implode(", ", $media_array);
+
+
+    $html = 'image::' . esc_attr($img_src) . '['.$comma_separated.']';
+
+    return $html;
+}
+add_filter('image_send_to_editor','wpasciidoc_image_wrap',10,8);
+
+define('CAPTIONS_OFF', true);
+add_filter('disable_captions', create_function('','return true;'));
+}
 
 ?>
