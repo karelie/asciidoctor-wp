@@ -18,13 +18,10 @@ class Plugin_wpasciidoc
      public function __construct()
     {
 
-        function my_wpasciidoc_activation_function() {
-            if (isset($_POST['wpasc_mode_select'])  && check_admin_referer('wpasciidoc')  ) {
-            update_option('wpasc_mode_select', '0');
-             }
-            register_activation_hook(__FILE__, 'my_wpasciidoc_activation_function');
+        if (function_exists('register_activation_hook'))
+        {
+            register_activation_hook(__FILE__, array(&$this, 'activation'));
         }
-
 
         // if (function_exists('register_deactivation_hook'))
         // {
@@ -38,6 +35,12 @@ class Plugin_wpasciidoc
 
             add_action( 'admin_menu', 'wpasciidoc_Menu' );
 
+    }
+
+    function activation() {
+        if (empty($_POST['wpasc_mode_select']) ) {
+            update_option('wpasc_mode_select', '0');
+             }
     }
 }
 
