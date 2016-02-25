@@ -59,6 +59,8 @@ class Plugin_wpasciidoc
         update_option('wpasc_check_post', $wpasc_check_post);
         $wpasc_check_page = isset($_POST['wpasc_check_page']) ? 1 : 0;
         update_option('wpasc_check_page', $wpasc_check_page);
+        $wpasc_check_asciidoccss = isset($_POST['wpasc_check_asciidoccss']) ? 1 : 0;
+        update_option('wpasc_check_asciidoccss', $wpasc_check_asciidoccss);
         $wpasc_check_custum = isset($_POST['wpasc_check_custum']) ? 1 : 0;
         update_option('wpasc_check_custum', $wpasc_check_custum);
         $wpasc_check_image = isset($_POST['wpasc_check_image']) ? 1 : 0;
@@ -107,6 +109,13 @@ class Plugin_wpasciidoc
 
     echo '<p id="">Extra settings:</p>';
 
+    echo '<p><input type="checkbox" value="1" name="wpasc_check_asciidoccss" ';
+    checked( 1, get_option('wpasc_check_asciidoccss'));
+    echo '> Use Asciidoc css</p>';
+    echo '<p>If you want use Asciidoc css, please check here.</p>';
+
+    echo '<br />';
+
     echo '<p><input type="checkbox" value="1" name="wpasc_check_image" ';
     checked( 1, get_option('wpasc_check_image'));
     echo '> Use Asciidoctor images format</p>';
@@ -143,6 +152,10 @@ function asciidoc_css_and_scripts(){
     wp_enqueue_script( 'setting.js', plugins_url('/js/setting.js', __FILE__) , array(), '' );
     wp_enqueue_style( 'wpasciidoc.css', plugins_url('/css/wpasciidoc.css', __FILE__) , array(), '' );
 
+    $wpasc_check_asciidoccss = get_option('wpasc_check_asciidoccss');
+    if($wpasc_check_asciidoccss == '1'){
+    wp_enqueue_style( 'asciidoctor.css', plugins_url('/js/css/asciidoctor.css', __FILE__) , array(), '' );
+    }
 
     $wpasc_check_jquery = get_option('wpasc_check_jquery');
     if($wpasc_check_jquery == '1'){
