@@ -135,8 +135,8 @@ class Plugin_wpasciidoc
     // echo '> jquery.js</p>';
     // echo '<p>If dose not have jquery is used in the current theme, please check here.</p>';
     //
-    // echo submit_button();
-    // echo '</form>';
+    echo submit_button();
+    echo '</form>';
 
 
 
