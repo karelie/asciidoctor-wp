@@ -67,8 +67,8 @@ class Plugin_wpasciidoc
         update_option('wpasc_check_image', $wpasc_check_image);
         $wpasc_check_highlight = isset($_POST['wpasc_check_highlight']) ? 1 : 0;
         update_option('wpasc_check_highlight', $wpasc_check_highlight);
-        $wpasc_check_jquery = isset($_POST['wpasc_check_jquery']) ? 1 : 0;
-        update_option('wpasc_check_jquery', $wpasc_check_jquery);
+        // $wpasc_check_jquery = isset($_POST['wpasc_check_jquery']) ? 1 : 0;
+        // update_option('wpasc_check_jquery', $wpasc_check_jquery);
        }
 
     if (isset($_POST['wpasc_mode_select']) ) {
@@ -130,13 +130,13 @@ class Plugin_wpasciidoc
 
     echo '<br />';
 
-    echo '<p><input type="checkbox" value="1" name="wpasc_check_jquery" ';
-    checked( 1, get_option('wpasc_check_jquery'));
-    echo '> jquery.js</p>';
-    echo '<p>If dose not have jquery is used in the current theme, please check here.</p>';
-
-    echo submit_button();
-    echo '</form>';
+    // echo '<p><input type="checkbox" value="1" name="wpasc_check_jquery" ';
+    // checked( 1, get_option('wpasc_check_jquery'));
+    // echo '> jquery.js</p>';
+    // echo '<p>If dose not have jquery is used in the current theme, please check here.</p>';
+    //
+    // echo submit_button();
+    // echo '</form>';
 
 
 
@@ -150,17 +150,18 @@ function asciidoc_css_and_scripts(){
 	// wp_enqueue_script( 'opal.min.js', plugins_url('/js/opal.min.js', __FILE__) , array(), '' );
 	wp_enqueue_script( 'asciidoctor.js', plugins_url('/js/asciidoctor-all.min.js', __FILE__) , array(), '' );
     wp_enqueue_script( 'setting.js', plugins_url('/js/setting.js', __FILE__) , array(), '' );
-    wp_enqueue_style( 'wpasciidoc.css', plugins_url('/css/wpasciidoc.css', __FILE__) , array(), '' );
+    wp_enqueue_script( 'jquery' );
+    // wp_enqueue_style( 'wpasciidoc.css', plugins_url('/css/wpasciidoc.css', __FILE__) , array(), '' );
 
     $wpasc_check_asciidoccss = get_option('wpasc_check_asciidoccss');
     if($wpasc_check_asciidoccss == '1'){
     wp_enqueue_style( 'asciidoctor.css', plugins_url('/js/css/asciidoctor.css', __FILE__) , array(), '' );
     }
 
-    $wpasc_check_jquery = get_option('wpasc_check_jquery');
-    if($wpasc_check_jquery == '1'){
-    wp_enqueue_script( 'jquery.js', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js' );
-    }
+    // $wpasc_check_jquery = get_option('wpasc_check_jquery');
+    // if($wpasc_check_jquery == '1'){
+    // wp_enqueue_script( 'jquery.js', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js' );
+    // }
 
     $wpasc_check_highlight = get_option('wpasc_check_highlight');
     if($wpasc_check_highlight == '1'){
