@@ -1,0 +1,267 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"e",
+				"echo	echo \"…\""
+			],
+			[
+				"els",
+				"else〔keyword〕"
+			],
+			[
+				"bt",
+				"button	<button>"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pc",
+		"selected_items":
+		[
+			[
+				"pc",
+				"Package Control: Enable Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"li",
+				"LiveReload: Help"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"View",
+			"Package Control: Install Package",
+			"Preferences"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/test/index.asc",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/package-metadata.json",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/package.json",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/templates/github-v1-export.tpl",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/templates/github-v1.tpl",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/templates/github.tpl",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/templates/github-export.tpl",
+		"/Applications/MAMP/htdocs/test/index.html",
+		"/Users/Chimera/Documents/asciidoc test/asc.asc",
+		"/Users/Chimera/Documents/asciidoc test/test.asc",
+		"/Users/Chimera/Library/Application Support/Google/Chrome/Default/Extensions/iaalpfgpbocpdfblpnhhgllgbdbchmia/1.5.4.100_0/js/vendor/asciidoctor.js",
+		"/Users/Chimera/Library/Application Support/Google/Chrome/Default/Extensions/iaalpfgpbocpdfblpnhhgllgbdbchmia/1.5.4.100_0/html/options.html",
+		"/Applications/MAMP/htdocs/wordpress/wp-includes/class-wp-editor.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-includes/media-template.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-includes/js/tinymce/plugins/wplink/plugin.js",
+		"/Applications/MAMP/htdocs/wordpress/wp-includes/functions.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-includes/js/wplink.js",
+		"/Applications/MAMP/htdocs/wordpress/wp-includes/media.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-includes/link-template.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/asciidoctor-wp/asciidoctor-wp.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-config.php",
+		"/Users/Chimera/Downloads/asciidoctor-wp-1.0.2/asciidoctor-wp.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/asciidoc/asciidoc.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/asciidoc/readme.txt",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/asciidoc/asciidoc____.php",
+		"/Users/Chimera/Documents/アルメニア語/git_hayeren/past.adoc",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/asciidoc/css/wpasciidoc.css",
+		"/Users/Chimera/Desktop/ガルニ.html",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/testplugin/test.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/asciidoc/js/setting.js",
+		"/Users/Chimera/Documents/アルメニア語/Hayeren_textbook/Untitled.adoc",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/asciidoc/footer-extensions.php",
+		"/Users/Chimera/Desktop/Ըստ ճապոնական իմաստասիրության <<Թռչունը հզոր է թևե",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/themes/twentyfifteen/content.php",
+		"/Users/Chimera/Documents/mwf_config",
+		"/Users/Chimera/Downloads/armenian.txt",
+		"/Users/Chimera/Documents/アルメニア語/git_hayeren/chapter1.adoc",
+		"/Users/Chimera/Documents/packages/asciidoc-preview/test.asciidoc",
+		"/Users/Chimera/GitHub/Hayeren/冠詞.adoc",
+		"/Users/Chimera/bower/bower_components/asciidoctor.js/README.adoc",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/themes/twentyfifteen/js/asciidoctor.js/manual.adoc",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/themes/twentyfifteen/footer.php",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Chimera/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"file",
+			"select file",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"DEFAULT_STYLESHEET_NAME",
+			"target=\"_blank\"",
+			"wplink",
+			"link",
+			"title",
+			"get_image_tag_class",
+			"get_image_tag",
+			"<img src",
+			"add_filter",
+			"wpasc_options",
+			"'",
+			"save_custom_postdata",
+			"get_post_meta",
+			"paka3checkbox"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"",
+			"wpasciidoc_checkbox"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "asciidoctor-wp.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
