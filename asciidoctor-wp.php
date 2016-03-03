@@ -4,7 +4,7 @@ Plugin Name: Asciidoctor for Wordpress
 Plugin URI:
 Description: Asciidoctor for Wordpress
 Author: SHUICHI MINAMIE
-Version: 1.0
+Version: 1.2.1
 Author URI: https://chimeraskyblog.wordpress.com
 */
 
@@ -22,16 +22,6 @@ class Plugin_wpasciidoc
         {
             register_activation_hook(__FILE__, array(&$this, 'activation'));
         }
-
-        // if (function_exists('register_deactivation_hook'))
-        // {
-        //     register_deactivation_hook(__FILE__, array(&$this, 'deactivationHook'));
-        // }
-
-        // if (function_exists('register_uninstall_hook'))
-        // {
-        //     register_uninstall_hook(__FILE__, array(&$this, 'uninstallHook'));
-        // }
 
             add_action( 'admin_menu', 'wpasciidoc_Menu' );
 
@@ -67,8 +57,8 @@ class Plugin_wpasciidoc
         update_option('wpasc_check_image', $wpasc_check_image);
         $wpasc_check_highlight = isset($_POST['wpasc_check_highlight']) ? 1 : 0;
         update_option('wpasc_check_highlight', $wpasc_check_highlight);
-        // $wpasc_check_jquery = isset($_POST['wpasc_check_jquery']) ? 1 : 0;
-        // update_option('wpasc_check_jquery', $wpasc_check_jquery);
+        $wpasc_check_table_paragraph = isset($_POST['wpasc_check_table_paragraph']) ? 1 : 0;
+        update_option('wpasc_check_table_paragraph', $wpasc_check_table_paragraph);
        }
 
     if (isset($_POST['wpasc_mode_select']) ) {
@@ -94,19 +84,6 @@ class Plugin_wpasciidoc
     echo '<p>If you want use with "Front end editor" or "wordpress.com", must be check here.</p>';
     echo '<br />';
 
-
-
-    // echo '<p id="">:</p>';
-    // echo '<p><input type="checkbox" value="1" name="wpasc_check_post" ';
-    // checked( 1, get_option('wpasc_check_post'));
-    // echo '> POST</p>';
-    // echo '<p><input type="checkbox" value="1" name="wpasc_check_page" ';
-    // checked( 1, get_option('wpasc_check_page'));
-    // echo '> PAGE</p>';
-    // echo '<p><input type="checkbox" value="1" name="wpasc_check_custum" ';
-    // checked( 1, get_option('wpasc_check_custum'));
-    // echo '> COSTUM POST TYPE</p>';
-
     echo '<p id="">Extra settings:</p>';
 
     echo '<p><input type="checkbox" value="1" name="wpasc_check_asciidoccss" ';
@@ -130,50 +107,41 @@ class Plugin_wpasciidoc
 
     echo '<br />';
 
-    // echo '<p><input type="checkbox" value="1" name="wpasc_check_jquery" ';
-    // checked( 1, get_option('wpasc_check_jquery'));
-    // echo '> jquery.js</p>';
-    // echo '<p>If dose not have jquery is used in the current theme, please check here.</p>';
-    //
+    echo '<p><input type="checkbox" value="1" name="wpasc_check_table_paragraph" ';
+    checked( 1, get_option('wpasc_check_table_paragraph'));
+    echo '> Without paragraph in the tables cell</p>';
+    echo '<p>If you want without paragraph in the tables cell, please check here.</p>';
+
     echo submit_button();
     echo '</form>';
-
-
 
   }
 
   add_action( 'wp_enqueue_scripts', 'asciidoc_css_and_scripts' );
 
-
  //add css and script
 function asciidoc_css_and_scripts(){
-	// wp_enqueue_script( 'opal.min.js', plugins_url('/js/opal.min.js', __FILE__) , array(), '' );
-	wp_enqueue_script( 'asciidoctor.js', plugins_url('/js/asciidoctor-all.min.js', __FILE__) , array(), '' );
-    wp_enqueue_script( 'setting.js', plugins_url('/js/setting.js', __FILE__) , array(), '' );
+  $wpasc_check_highlight = get_option('wpasc_check_highlight');
+  if($wpasc_check_highlight == '1'){
+  wp_enqueue_style( 'highlight.css', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/github-gist.min.css');
+  wp_enqueue_script( 'highlight.js', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js');
+  wp_enqueue_script( 'setting_highlight.js', plugins_url('/js/setting_highlight.js', __FILE__) , array(), '' );
+  }
+
     wp_enqueue_script( 'jquery' );
-    // wp_enqueue_style( 'wpasciidoc.css', plugins_url('/css/wpasciidoc.css', __FILE__) , array(), '' );
+    wp_enqueue_script( 'asciidoctor.js', plugins_url('/js/asciidoctor-all.min.js', __FILE__) , array(), '' );
+    wp_enqueue_script( 'setting.js', plugins_url('/js/setting.js', __FILE__) , array(), '' );
 
     $wpasc_check_asciidoccss = get_option('wpasc_check_asciidoccss');
     if($wpasc_check_asciidoccss == '1'){
     wp_enqueue_style( 'asciidoctor.css', plugins_url('/js/css/asciidoctor.css', __FILE__) , array(), '' );
     }
 
-    // $wpasc_check_jquery = get_option('wpasc_check_jquery');
-    // if($wpasc_check_jquery == '1'){
-    // wp_enqueue_script( 'jquery.js', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js' );
-    // }
-
-    $wpasc_check_highlight = get_option('wpasc_check_highlight');
-    if($wpasc_check_highlight == '1'){
-    wp_enqueue_script( 'highlight.js', plugins_url('/js/highlight.js', __FILE__) , array(), '' );
-    wp_enqueue_script( 'setting_highlight.js', plugins_url('/js/setting_highlight.js', __FILE__) , array(), '' );
-    wp_enqueue_style( 'highlight.css', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css');
+    $wpasc_check_table_paragraph = get_option('wpasc_check_table_paragraph');
+    if($wpasc_check_table_paragraph == '1'){
+    wp_enqueue_script( 'footer_setting.js', plugins_url('/js/footer_setting.js', __FILE__) , array(), '', true );
     }
 
-// wp_enqueue_script( 'opal.js', plugins_url('/js/vendor/opal.js', __FILE__) , array(), '' );
-// wp_enqueue_script( 'asciidoctor.js', plugins_url('/js/vendor/asciidoctor.js', __FILE__) , array(), '' );
-// wp_enqueue_script( 'highlight.js', plugins_url('/js/vendor/highlight.min.js', __FILE__) , array(), '' );
-// wp_enqueue_script( 'renderer.js', plugins_url('/js/renderer.js', __FILE__) , array(), '' );
 }
 
 
@@ -208,7 +176,6 @@ function wpasciidoc_custom_field(){
        $id = get_the_ID();
 
         $get_wpasciidoc_checkbox = get_post_meta($id,'wpasciidoc_checkbox',true);
-        // $wpasciidoc_checkbox =$get_wpasciidoc_checkbox  ? $get_wpasciidoc_checkbox  : array();
         echo '<label><input type="checkbox" name="wpasciidoc_checkbox[]" value="1"' . (!empty($get_wpasciidoc_checkbox) ? ' checked="checked" ' : null) . '.>Asciidoc</label>';
 }
 
@@ -265,10 +232,8 @@ function wpasciidoc_custom($contentData){
 
 //remove_filter wpautop and wptexturize
 add_action('init', function() {
-    // remove_filter('the_excerpt', 'wpautop');
     remove_filter('the_content', 'wpautop');
     remove_filter('the_content', 'wptexturize');
-    // remove_filter('the_content', 'convert_chars');
 });
 
 add_filter('tiny_mce_before_init', function($init) {
@@ -286,8 +251,6 @@ function wpasciidoc_image_wrap($html, $id, $caption, $title, $align, $url, $size
     $media_array = array();
     if ($width ==! ""){$width = 'width="'.$width.'"';$media_array[]=$width;}
     if ($height ==! ""){$height = 'height="'.$height.'"';$media_array[]=$height;}
-    // if ($title ==! ""){$title = 'title="'.$esc_attr($title).'"';$media_array[]=$title;}
-    // if ($caption ==! ""){$caption = 'caption="'.$caption.'"';$media_array[]=$caption;}
     if ($alt ==! ""){$alt = 'alt="'.esc_attr($alt).'"';$media_array[]=$alt;}
     if ($url ==! ""){$url = 'link="'.$url.'"';$media_array[]=$url;}
     if ($align ==! ""){$align = 'align="'.$align.'"';$media_array[]=$align;}
