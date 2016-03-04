@@ -4,7 +4,7 @@ Plugin Name: Asciidoctor for Wordpress
 Plugin URI:
 Description: Asciidoctor for Wordpress
 Author: SHUICHI MINAMIE
-Version: 1.2.1
+Version: 1.2.4
 Author URI: https://chimeraskyblog.wordpress.com
 */
 
