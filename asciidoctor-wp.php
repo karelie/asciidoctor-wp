@@ -46,26 +46,19 @@ class Plugin_wpasciidoc
     if (isset($_POST['wpasc_mode_select'])  && check_admin_referer('wpasciidoc')  ) {
         $wpasc_mode_select = sanitize_text_field( $_POST['wpasc_mode_select'] );
         update_option('wpasc_mode_select', $wpasc_mode_select);
-        $wpasc_check_post = isset($_POST['wpasc_check_post']) ? 1 : 0;
-        $wpasc_check_post = sanitize_text_field( $wpasc_check_post );
+        $wpasc_check_post = sanitize_text_field( $_POST['wpasc_check_post'] );
         update_option('wpasc_check_post', $wpasc_check_post);
-        $wpasc_check_page = isset($_POST['wpasc_check_page']) ? 1 : 0;
-        $wpasc_check_page = sanitize_text_field( $wpasc_check_page );
+        $wpasc_check_page = sanitize_text_field( $_POST['wpasc_check_page'] );
         update_option('wpasc_check_page', $wpasc_check_page);
-        $wpasc_check_asciidoccss = isset($_POST['wpasc_check_asciidoccss']) ? 1 : 0;
-        $wpasc_check_asciidoccss = sanitize_text_field( $wpasc_check_asciidoccss );
+        $wpasc_check_asciidoccss = sanitize_text_field( $_POST['wpasc_check_asciidoccss'] );
         update_option('wpasc_check_asciidoccss', $wpasc_check_asciidoccss);
-        $wpasc_check_custum = isset($_POST['wpasc_check_custum']) ? 1 : 0;
-        $wpasc_check_custum = sanitize_text_field( $wpasc_check_custum );
+        $wpasc_check_custum = sanitize_text_field( $_POST['wpasc_check_custum'] );
         update_option('wpasc_check_custum', $wpasc_check_custum);
-        $wpasc_check_image = isset($_POST['wpasc_check_image']) ? 1 : 0;
-        $wpasc_check_image = sanitize_text_field( $wpasc_check_image );
+        $wpasc_check_image = sanitize_text_field( $_POST['wpasc_check_image'] );
         update_option('wpasc_check_image', $wpasc_check_image);
-        $wpasc_check_highlight = isset($_POST['wpasc_check_highlight']) ? 1 : 0;
-        $wpasc_check_highlight = sanitize_text_field( $wpasc_check_highlight );
+        $wpasc_check_highlight = sanitize_text_field( $_POST['wpasc_check_highlight'] );
         update_option('wpasc_check_highlight', $wpasc_check_highlight);
-        $wpasc_check_table_paragraph = isset($_POST['wpasc_check_table_paragraph']) ? 1 : 0;
-        $wpasc_check_table_paragraph = sanitize_text_field( $wpasc_check_table_paragraph );
+        $wpasc_check_table_paragraph = sanitize_text_field( $_POST['wpasc_check_table_paragraph'] );
         update_option('wpasc_check_table_paragraph', $wpasc_check_table_paragraph);
        }
 
